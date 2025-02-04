@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <meta name="description" content="The Registration Form —— JUNJIE ZENG Assignment 1">
+    <style>
+        /*=====  Form Style  ======*/
+
+        form {
+            /* Size control */
+            width: 50%;
+
+            /* form border */
+            border: 2px solid;
+            border-color: #7B68EE;
+            border-radius: 10px;
+
+            /* spacing */
+            padding: 30px;
+            margin: 50px 20px;
+
+            /* Background */
+            background-color: #E6E6FA;
+        }
+
+        form>h1 {
+            /* Position - put heading 'Registration' in center */
+            text-align: center;
+        }
+
+        form>div {
+            /* Size control */
+            width: 100%;
+
+            /* Flex-wrap - wrapping each line in the form according to the window size */
+            display: flex;
+            flex-wrap: wrap;
+
+            /* Line spacing */
+            margin-bottom: 5px;
+        }
+
+        form>div>label:not(.gender-label) {
+            /* Label style */
+            min-width: 157.8px;
+            margin-right: 10px;
+            text-align: right;
+            font: 1em sans-serif;
+            font-weight: bold;
+        }
+
+        textarea {
+            /* Textarea fill up the line blank space in form */
+            flex-grow: 1;
+        }
+
+        button {
+            /* Spacing */
+            padding: 10px 20px;
+        }
+
+        input:invalid {
+            /* inappropriate input notice */
+            border-color: #FF0000;
+        }
+
+        button:hover {
+            /* Button hover style */
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .form-textInput>input {
+            /* Input fill up each line in form */
+            flex-grow: 1;
+        }
+
+        #form-container {
+            /* size control */
+            width: 100%;
+
+            /* Flex positioning - form in container in the center*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #register-button {
+            /* Spacing */
+            margin-top: 20px;
+
+            /* Flex display - put button in center */
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 644px) {
+
+            /* Form size get larger once on a small screen */
+            form {
+                width: 80%;
+            }
+
+            /* Label align to left once on a small screen to look tidy in case the lines are wrap */
+            form>div>label:not(.gender-label) {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ================================= -->
+    <!-- === REGISTRATION FORM SECTION === -->
+    <!-- ================================= -->
+    <div id="form-container">
+        <form action="demo.php" method="post" onsubmit="">
+
+            <h1>Registration</h1>
+
+            <!-- First Name Input -->
+            <div class="form-textInput">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Firstname" required>
+            </div>
+
+            <!-- Last Name Input -->
+            <div class="form-textInput">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Lastname" required>
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-textInput">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="E-Mail"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-textInput">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                    title="Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long"
+                    required>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="form-textInput">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password"
+                    required>
+            </div>
+
+            <!-- Date of Birth Input -->
+            <div>
+                <label for="date-of-birth">Date of Birth:</label>
+                <input type="date" id="date-of-birth" name="date_of_birth" required>
+            </div>
+
+            <!-- Gender Input -->
+            <div>
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" />
+                <label for="male" class="gender-label">Male</label>
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female" class="gender-label"">Female</label>
+            </div>
+
+            <!-- About Me Text Area -->
+            <div>
+                <label for=" about-me">About Me:</label>
+                <textarea name="about-me" id="" cols="" rows="3"
+                    placeholder="More information that you want to share..."></textarea>
+            </div>
+
+            <!-- Profession Selection -->
+            <div>
+                <label for="profession">Choose Your Profession:</label>
+                <select name="profession" id="profession">
+                    <option value="web-development">Web Development</option>
+                    <option value="data-analytics">Data Analytics</option>
+                    <option value="uiux-design" selected>UI/UX Design</option>
+                </select>
+            </div>
+
+            <!-- Register Submit Button -->
+            <div id="register-button">
+                <button id="register">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

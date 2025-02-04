@@ -1,0 +1,72 @@
+body {
+  background-color: #E7E7E7;
+}
+
+.course-progress {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* remove the default ol - list number */
+  list-style: none;
+  /* remove space generate with ol - list number */
+  padding-inline-start: 0;
+  /* reset the step-counter */
+  counter-reset: step-counter;
+}
+
+.course-progress .course-step {
+  /* boder style */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  /* box style */
+  padding: 20px;
+  background-color: #FFFFFF;
+  /* step-counter increase */
+  counter-increment: step-counter;
+  /* allow the progress-bar's positionning */
+  position: relative;
+  /* remove the effection from progress-bar's positionning */
+  overflow: hidden;
+}
+
+.course-progress .course-step .progress-bar {
+  /* size */
+  height: 15px;
+  width: 100%;
+  /* positioning */
+  position: absolute;
+  margin: -20px;
+  /* presetting variable */
+  /* get the progress bar shown by color base on --i */
+  background: linear-gradient(to right, hsl(calc(200 + (var(--i) - 1) * 60), 70%, 50%) calc(var(--i) * 20%), hsl(calc(200 + (var(--i) - 1) * 60), 40%, 80%) calc(var(--i) * 20%));
+}
+
+.course-progress .course-step h3 {
+  display: flex;
+  align-items: center;
+}
+
+.course-progress .course-step h3::before {
+  content: counter(step-counter);
+  /* the circle wrapping the list number */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: hsl(calc(200 + (var(--i) - 1) * 60), 70%, 50%);
+  /* List number color */
+  color: white;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 20px;
+  flex-shrink: 0;
+}
+
+#list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
